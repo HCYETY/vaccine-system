@@ -1,0 +1,32 @@
+*{
+    list-style: none;
+}
+.whole{
+    margin-top: 50px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+.topic{
+    font-size: 30px;
+    /* font-family: '微软雅黑'; */
+}
+.list-group-item{
+    color: black;
+    border: 1px solid black;
+    border-bottom: none;
+}
+.list-group-item:hover{
+    background: rgba(202, 185, 185, 0.966);
+}
+.list-group-item:active{
+    background-color: skyblue;
+    color: white;
+}
+.news-left{
+    border: 2px solid white;
+    float: left;
+}
+.news-right{
+    float: left;
+    margin-left: 100px;
+}
