@@ -1,27 +1,25 @@
-// 引入react核心库
 import React from 'react'
-// 引入ReactDOM
 import ReactDOM from 'react-dom'
-// 引入react-router-dom
 import {BrowserRouter} from 'react-router-dom'
-// 引入App组件
+// import {Provider} from 'react-redux'
+// import store from './store'
 import App from './App'
-
-import store from './redux/store'
 
 //渲染App组件到页面
 ReactDOM.render(
 	<BrowserRouter>
-		<App/>
+		{/* <Provider store={store}> */}
+			<App/>
+		{/* </Provider> */}
 	</BrowserRouter>,
 	document.getElementById('root')
 )
 
-store.subscribe(() => {
-	ReactDOM.render(
-		<BrowserRouter>
-			<App/>
-		</BrowserRouter>,
-		document.getElementById('root')
-	)
-})
+// store.subscribe(() => {
+// 	ReactDOM.render(
+// 		<BrowserRouter>
+// 			<App/>
+// 		</BrowserRouter>,
+// 		document.getElementById('root')
+// 	)
+// })
