@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 
 export default class Find_reserve_inform extends Component {
     render() {
-        const person = JSON.parse(localStorage.getItem('myobject'))
-        const person1_name = person[0].name
-        const person1_id = person[0].id
-        const person1_address = person[0].address
-        const person1_num = person[0].num
-        const person1_shotpoint = person[0].shotpoint
-        const person1_reserve_number = person[0].reserve_number
+        const person = JSON.parse(localStorage.getItem('myReserve'))
+        if(person) {
+            var length = person.length - 1
+            var person1_name = person[length].name
+            var person1_id = person[length].id
+            var person1_address = person[length].address
+            var person1_num = person[length].num
+            var person1_shotpoint = person[length].shotpoint
+            var person1_reserve_number = person[length].reserve_number
+        }
         console.log(person1_name, person1_id, person1_address, person1_num, person1_shotpoint)
 
         return (
