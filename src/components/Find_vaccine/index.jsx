@@ -6,13 +6,13 @@ let date2 = 0
 
 export default class Find_vaccine extends Component {
     onChange1(value, dateString) {
-        console.log('Selected Time: ', value);
-        console.log('Formatted Selected Time: ', dateString);
+        // console.log('Selected Time: ', value);
+        // console.log('Formatted Selected Time: ', dateString);
         date1 = dateString
     }
     onChange2(value, dateString) {
-        console.log('Selected Time: ', value);
-        console.log('Formatted Selected Time: ', dateString);
+        // console.log('Selected Time: ', value);
+        // console.log('Formatted Selected Time: ', dateString);
         date2 = dateString
     }
 

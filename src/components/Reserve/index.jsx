@@ -6,16 +6,26 @@ let personArr = new Array()
 let reserve_number = 0 // 预约号码
 let reserve_nums = 0   // 预约人数
 let second_shot = 0    // 第二针的人数
-const countObj = localStorage.getItem('countObj')
+const countObj = JSON.parse(localStorage.getItem('countObj'))
 
 export default class Reserve extends Component {
+    state = {
+        date:0
+    }
+    onChange = (value, dateString) => {
+        this.setState({
+            date:dateString
+        },()=>{
+            console.log(this.state.date)
+        })
+    }
     submit = () => {
         // 用户的预约信息
         const name = this.name.state.value
         const id = this.id.state.value
         const address = this.address.state.value
         const nums = this.nums.value
-        const date = this.date.value
+        const date = this.state.date
         const points = this.points.value
         // console.log(name, id, address, nums, points)
         const personObj = {
@@ -25,6 +35,9 @@ export default class Reserve extends Component {
             num:nums,
             shotpoint:points 
         }
+        personObj.date = date
+        console.log(date)
+        console.log(personObj.date)
         personArr.push(personObj)
 
         // 用户是否能预约成功的判断
@@ -33,6 +46,9 @@ export default class Reserve extends Component {
             var point2 = countObj[date].count2
             var point3 = countObj[date].count3
             var point4 = countObj[date].count4
+        } else {
+            alert("您选择的日期没有剩余疫苗，请重新选择日期")
+            return
         }
         switch(points) {
             case '注射点1':
@@ -40,7 +56,7 @@ export default class Reserve extends Component {
                     alert("恭喜您预约成功！如果想查询您的预约信息，请点击左侧“查询个人预约信息”！")
 
                     point1--
-                    localStorage.setItem("countObj", point1)
+                    // localStorage.setItem("countObj", point1)
 
                     reserve_number++
                     reserve_nums++
@@ -148,7 +164,7 @@ export default class Reserve extends Component {
                 身份证号： <Input placeholder="请输入您的身份证号" ref={b => this.id = b}/> <br/>
                 单位或社区： <Input placeholder="请输入您工作的单位或所在的社区" ref={c => this.address = c}/> <br/>
                 已经注射过的针数： <InputNumber min={0} max={2} ref={d => this.nums = d}/> <br/>
-                您想预约哪一天：<DatePicker ref={c => this.date = c} format="YYYY-MM-DD"/><br/>
+                您想预约哪一天：<DatePicker onChange={this.onChange} ref={c => this.date = c} format="YYYY-MM-DD"/><br/>
                 预约注射点：
                 <select ref={e => this.points = e}>
                     <option value="注射点1">注射点1</option>    

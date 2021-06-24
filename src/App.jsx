@@ -20,11 +20,11 @@ export default class App extends Component {
                 <h2 className="topic">疫苗预约管理系统</h2> <hr/>
                 <div className="news-left">
                     <NavLink activeClassName="blue" className="list-group-item" to="/input">输入某天各注射点存入的疫苗数量</NavLink ><br/>
-                    <NavLink activeClassName="blue" className="list-group-item" to="/find_vaccine">查询注射点疫苗信息</NavLink><br/>
                     <NavLink activeClassName="blue" className="list-group-item" to="/reserve">个人预约</NavLink><br/>
+                    <NavLink activeClassName="blue" className="list-group-item" to="/find_vaccine">查询注射点疫苗信息</NavLink><br/>
                     <NavLink activeClassName="blue" className="list-group-item" to="/find_reserve_inform">查询个人预约信息</NavLink><br/>
-                    <NavLink activeClassName="blue" className="list-group-item" to="/cancel_reserve">取消个人预约</NavLink><br/>
-                    <NavLink activeClassName="blue" className="list-group-item" to="/find_cancel_break">查询取消或爽约记录</NavLink>
+                    {/* <NavLink activeClassName="blue" className="list-group-item" to="/cancel_reserve">取消个人预约</NavLink><br/>
+                    <NavLink activeClassName="blue" className="list-group-item" to="/find_cancel_break">查询取消或爽约记录</NavLink> */}
                 </div>
                 <div className="news-right">
                     <Switch>
@@ -32,8 +32,8 @@ export default class App extends Component {
                         <Route path="/find_vaccine" component={Find_vaccine}/>
                         <Route path="/reserve" component={Reserve}/>
                         <Route path="/find_reserve_inform" component={Find_reserve_inform}/>
-                        <Route path="/cancel_reserve" component={Cancel_reserve}/>
-                        <Route path="/find_cancel_break" component={Find_cancel_break}/>
+                        {/* <Route path="/cancel_reserve" component={Cancel_reserve}/>
+                        <Route path="/find_cancel_break" component={Find_cancel_break}/> */}
                         <Redirect to="/input"/>
                     </Switch>
                 </div>
